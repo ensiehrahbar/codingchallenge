@@ -1,4 +1,4 @@
-package de.sevensender.codingchallenge.serviceImpl;
+package de.sevensender.codingchallenge.util;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;

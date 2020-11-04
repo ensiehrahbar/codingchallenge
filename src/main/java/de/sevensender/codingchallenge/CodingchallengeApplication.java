@@ -7,18 +7,22 @@ package de.sevensender.codingchallenge;
 
 import com.rometools.rome.feed.synd.SyndEntry;
 import com.rometools.rome.feed.synd.SyndFeed;
+import com.rometools.rome.io.FeedException;
 import com.rometools.rome.io.SyndFeedInput;
 import com.rometools.rome.io.XmlReader;
+import de.sevensender.codingchallenge.util.RSSFeedsParser;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.io.IOException;
 import java.net.URL;
-
+import de.sevensender.codingchallenge.util.RSSFeedsParser;
 @SpringBootApplication
 public class CodingchallengeApplication {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, FeedException {
         SpringApplication.run(CodingchallengeApplication.class, args);
+       new RSSFeedsParser();
 
     }
 
