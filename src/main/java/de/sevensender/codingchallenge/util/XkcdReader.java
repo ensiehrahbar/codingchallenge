@@ -18,6 +18,8 @@ public class XkcdReader {
         JsonElement jsonElement = JsonParser.parseReader
                 (new InputStreamReader((InputStream) request.getContent()));
         JsonObject jsonObject = jsonElement.getAsJsonObject();
+        String json = jsonObject.toString();
+
         return jsonObject;
     }
 }

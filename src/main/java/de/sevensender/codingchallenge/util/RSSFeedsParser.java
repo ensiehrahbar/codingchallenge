@@ -1,46 +1,31 @@
 package de.sevensender.codingchallenge.util;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.rometools.rome.feed.synd.SyndEntry;
 import com.rometools.rome.feed.synd.SyndFeed;
 import com.rometools.rome.io.FeedException;
 import com.rometools.rome.io.SyndFeedInput;
 import com.rometools.rome.io.XmlReader;
-import org.springframework.http.HttpMethod;
-import org.springframework.web.client.RestTemplate;
-
+import de.sevensender.codingchallenge.model.Feed;
 
 public class RSSFeedsParser {
-    static final String TITLE = "title";
-    static final String PICTURE_URL = "pictureUrl";
-    static final String PUB_DATE = "publishingDate";
-
-    public RSSFeedsParser() throws IOException, FeedException {
-
-   /*     RestTemplate restTemplate = new RestTemplate();
-        SyndFeed syndFeed = restTemplate.execute(feedUrl, HttpMethod.GET, null, response -> {
-            SyndFeedInput input = new SyndFeedInput();
-            try {
-                return input.build(new XmlReader(response.getBody()));
-            } catch (FeedException e) {
-                throw new IOException("Could not parse response", e);
-            }
-        });*/
-
-
-        URL url = new URL("http://feeds.feedburner.com/PoorlyDrawnLines");
-        SyndFeed feed;
-        feed = new SyndFeedInput().build(new XmlReader(url));
-
+    public List<Feed> parse(String path) throws IOException, FeedException {
+        URL url = new URL(path);
+        SyndFeed feed = new SyndFeedInput().build(new XmlReader(url));
+        List<Feed> feeds = new ArrayList<Feed>();
         for (SyndEntry entry : feed.getEntries()) {
-            System.out.println(entry);
-            System.out.println("======================================");
+            String imageURL = HtmlParser.parser(entry.getContents().get(0).getValue());
+            feeds.add(
+                    new Feed(
+                            entry.getTitleEx().getValue(),
+                            entry.getLink(),
+                            entry.getPublishedDate(),
+                            (imageURL)));
         }
-        System.out.println(feed.getTitle());
-
+        return feeds;
     }
 }
