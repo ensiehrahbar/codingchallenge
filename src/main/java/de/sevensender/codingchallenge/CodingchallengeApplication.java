@@ -28,7 +28,7 @@ public class CodingchallengeApplication {
     public static void main(String[] args) throws IOException, FeedException, ParserConfigurationException, SAXException {
         SpringApplication.run(CodingchallengeApplication.class, args);
       // new RSSFeedsParser();
-       new XkcdReader().XkcdReader(1);
+      // new XkcdReader().XkcdReader(1);
 
     }
 
