@@ -1,7 +1,7 @@
 package de.sevensender.app;
 /**
- * @Autor :Ensieh Rahbar
- * @Creation time:03-11-2020
+ * @author      Ensieh Rahbar
+ * @since 1.0
  */
 
 import org.springframework.boot.SpringApplication;

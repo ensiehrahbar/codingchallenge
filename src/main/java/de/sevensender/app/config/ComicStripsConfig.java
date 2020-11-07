@@ -9,7 +9,9 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 @Configuration
 class ComicStripsConfig {
-
+    /**
+     * Format the font of result (jsons) to Upper Camel Case.
+     */
     @Bean
     public Jackson2ObjectMapperBuilderCustomizer customizeJson() {
         return builder -> {

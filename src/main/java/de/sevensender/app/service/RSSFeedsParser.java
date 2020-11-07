@@ -20,7 +20,9 @@ import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
+/**
+ * Parsing RSS Feed URI, read and retrieve json according to CustomJson Model
+ * */
 @Component
 public class RSSFeedsParser {
 
@@ -31,14 +33,20 @@ public class RSSFeedsParser {
     @Autowired
     public RSSFeedsParser(@Value("${urlFeed}") String urlFeed) {
         this.urlFeed = urlFeed;}
-
+    /**
+     * @throws IOException  If an input or output
+     *                      exception occurred
+     * Method to retrieve last 10 json from RSS Feed Site
+     */
     public List<CustomJson> getLast10Feeds() throws IOException, FeedException {
         URL url = new URL(urlFeed);
         SyndFeed feed = new SyndFeedInput().build(new XmlReader(url));
         return feed.getEntries().stream().map(this::syndEntry2CustomJson)
                 .collect(Collectors.toList());
     }
-
+    /**
+     * Receive feed and return  feed json with desire format and according to CustomModel
+     * */
     private CustomJson syndEntry2CustomJson(SyndEntry entry) {
         String imageURL = entry.getContents().get(0).getValue();
         imageURL = HtmlParser.parse(imageURL);
@@ -55,7 +63,9 @@ public class RSSFeedsParser {
                 date,
                 (imageURL));
     }
-
+    /**
+     * Through content element of RSS Feed Json retrieve image URL
+     * */
     private static class HtmlParser {
 
         public static String parse(String html) {

@@ -2,7 +2,9 @@ package de.sevensender.app.model;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-
+/**
+ * Json Custom Model according to code challenge request
+ * */
 public final class CustomJson {
 
     private final String title;

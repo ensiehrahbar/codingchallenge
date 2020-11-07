@@ -11,7 +11,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+/**
+ * Controller class for making rest API
+ * */
 @RestController
 public class ComicStripsController {
 
@@ -23,7 +25,9 @@ public class ComicStripsController {
         this.rssFeedsParser = rssFeedsParser;
         this.xkcdReader = xkcdReader;
     }
-
+    /**
+     * Get rest service to retrieves last 20 json from RSS Feed and XKCD .
+     */
     @GetMapping("/")
     public List<CustomJson> getComicStrips() throws IOException, FeedException {
 
