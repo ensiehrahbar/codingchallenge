@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
@@ -20,7 +21,6 @@ class RSSFeedsParserTest {
     @Test
     void  testGetLast10Feeds() throws IOException, FeedException {
         List<CustomJson> result = rssFeedsParser.getLast10Feeds();
-
         Assertions.assertTrue(result.size()>0);
     }
 

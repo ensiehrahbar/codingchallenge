@@ -22,14 +22,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class XKCDReader {
 
-    private final String urlXKCD;
-    /**
-     * Class constructor.
-     */
-    @Autowired
-    public XKCDReader(@Value("${urlXKCD}") String urlXKCD) {
-        this.urlXKCD = urlXKCD;
-    }
+    private static final String XKCD_NUMBER_OF_FILE_URL = "https://xkcd.com/info.0.json";
     /**
      * Method for retrieve last 10 json from last XKCD URI
      * */
@@ -60,7 +53,7 @@ public class XKCDReader {
      * Return last number from last XKCD URI by calling specific url(json)
      * */
     private int getLastXkcdNumber() throws IOException {
-        URL url = new URL(urlXKCD);
+        URL url = new URL(XKCD_NUMBER_OF_FILE_URL);
         return getJsonElement(url).getAsJsonObject().get("num").getAsInt();
     }
     /**

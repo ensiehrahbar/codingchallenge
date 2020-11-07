@@ -20,7 +20,6 @@ class XKCDReaderTest {
     @Test
     void testGetLast10Records() throws IOException {
         List<CustomJson> result = xkcdReader.getLast10Records();
-
         assertTrue(result.size()>0);
     }
 

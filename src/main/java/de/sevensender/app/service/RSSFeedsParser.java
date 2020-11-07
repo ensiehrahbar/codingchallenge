@@ -21,25 +21,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 /**
- * Parsing RSS Feed URI, read and retrieve json according to CustomJson Model
+ * Parsing RSS Feed URI, read and retrieve json according to Custom
  * */
 @Component
 public class RSSFeedsParser {
 
-    private final String urlFeed;
-    /**
-     * Class constructor.
-     */
-    @Autowired
-    public RSSFeedsParser(@Value("${urlFeed}") String urlFeed) {
-        this.urlFeed = urlFeed;}
+    private static final String RSS_FEED_URL = "http://feeds.feedburner.com/PoorlyDrawnLines";
+
     /**
      * @throws IOException  If an input or output
      *                      exception occurred
      * Method to retrieve last 10 json from RSS Feed Site
      */
     public List<CustomJson> getLast10Feeds() throws IOException, FeedException {
-        URL url = new URL(urlFeed);
+        URL url = new URL(RSS_FEED_URL);
         SyndFeed feed = new SyndFeedInput().build(new XmlReader(url));
         return feed.getEntries().stream().map(this::syndEntry2CustomJson)
                 .collect(Collectors.toList());
