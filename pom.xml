@@ -9,11 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>de.sevensender</groupId>
-    <artifactId>codingchallenge</artifactId>
+    <artifactId>ComicStripsApplication</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>codingchallenge</name>
-    <description>Demo project for Spring Boot</description>
-
+    <name>ComicStripsApplication</name>
+    <description>Demo project for ComicStripsApplication</description>
     <properties>
         <java.version>11</java.version>
     </properties>
@@ -51,6 +50,12 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.30</version>
         </dependency>
         <dependency>
             <groupId>com.rometools</groupId>
@@ -62,16 +67,17 @@
             <artifactId>logback-classic</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <scope>test</scope>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/org.jsoup/jsoup -->
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
             <version>1.13.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.7.0</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

@@ -1,4 +1,4 @@
-package de.sevensender.codingchallenge.model;
+package de.sevensender.app.model;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -35,7 +35,7 @@ public final class CustomJson {
     }
 
     private LocalDate getFormattedPublishingDate(LocalDate publishingDate) {
-        publishingDate.format(DateTimeFormatter.ofPattern("YYYY/MM/d"));
+        publishingDate.format(DateTimeFormatter.ofPattern("yyyy/MM/d"));
         return publishingDate;
     }
 }

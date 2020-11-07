@@ -1,10 +1,10 @@
-package de.sevensender.codingchallenge;
+package de.sevensender.app;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CodingchallengeApplicationTests {
+class ComicStripsApplicationTests {
 
     @Test
     void contextLoads() {
